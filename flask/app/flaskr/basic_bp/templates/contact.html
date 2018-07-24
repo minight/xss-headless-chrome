@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Contact</h1>
+<p>Provide a url and the admin will check that page</p>
+  <form action="" method=post>
+    <fieldset class="form-group">
+      <label>URL</label>
+      <input class="form-control" name="url" placeholder="http://google.com"/>
+    </fieldset>
+    <input type="submit" class="btn btn-primary" value="login"/>
+  </form>
+{% endblock %}

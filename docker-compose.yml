@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:10-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: hunter2isbestpassword
+      POSTGRES_USER: adminisbestusername
+      POSTGRES_DB: magicdatabase
+    ports:
+      - "5432:5432"
+  app:
+    build: ./flask
+    restart: always
+    ports:
+      - "4000:80"
+    depends_on:
+      - db
+    environment:
+      HOST: "http://chain.demo.ns.agency/"

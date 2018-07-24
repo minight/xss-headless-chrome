@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Profile:</h1>
+<p>Username: {{user.username}}</p>
+<form method=POST>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    {% autoescape off %}
+    <textarea class="form-control" name="description" rows="3">{{user.description}}</textarea>
+    {% endautoescape %}
+  </div>
+  <input type="submit" class="btn btn-primary mb-2" value="Update"/>
+</form>
+
+{% endblock %}

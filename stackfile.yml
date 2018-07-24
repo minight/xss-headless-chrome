@@ -1,0 +1,18 @@
+db:
+  image: "postgres:10-alpine"
+  autoredeploy: true
+  environment:
+    POSTGRES_PASSWORD: hunter2isbestpassword
+    POSTGRES_USER: adminisbestusername
+    POSTGRES_DB: magicdatabase
+app:
+  image: "pwnerati/cs6843-ext4-moonshot:latest"
+  autoredeploy: true
+  environment:
+    - LETSENCRYPT_EMAIL=cs6443@cse.unsw.edu.au
+    - LETSENCRYPT_HOST=moonshot.oneshot.ns.agency
+    - VIRTUAL_HOST=moonshot.oneshot.ns.agency
+  expose:
+    - "80"
+  links:
+    - db
